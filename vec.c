@@ -5,7 +5,7 @@
 
 #include "vec.h"
 
-static void rpanic() { abort(); }
+static void rpanic(void) { abort(); }
 
 static void* my_malloc(const size_t size) {
     void* const res = malloc(size);

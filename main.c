@@ -3,7 +3,7 @@
 #include "deque.h"
 #include "vec.h"
 
-static void test_vec_new() {
+static void test_vec_new(void) {
     {
         Vec* const vec = vec_new(sizeof(int), 0, NULL);
         assert(vec_is_empty(vec));
@@ -24,7 +24,7 @@ static void test_vec_new() {
     }
 }
 
-static void test_vec_with_capacity() {
+static void test_vec_with_capacity(void) {
     {
         Vec* const vec = vec_with_capacity(sizeof(int), 0);
         assert(vec_is_empty(vec));
@@ -42,7 +42,7 @@ static void test_vec_with_capacity() {
     }
 }
 
-static void test_vec_operation() {
+static void test_vec_operation(void) {
     const int value_ini = 10;
     Vec* const vec = vec_new(sizeof(int), 3, &value_ini);
 
@@ -83,7 +83,7 @@ static void test_vec_operation() {
     vec_delete(vec);
 }
 
-static void test_deque_new() {
+static void test_deque_new(void) {
     {
         Deque* deq = deque_new(sizeof(int), 0, NULL);
         assert(deque_is_empty(deq));
@@ -104,7 +104,7 @@ static void test_deque_new() {
     }
 }
 
-static void test_deque_with_capacity() {
+static void test_deque_with_capacity(void) {
     {
         Deque* const deq = deque_with_capacity(sizeof(int), 0);
         assert(deque_is_empty(deq));
@@ -122,7 +122,7 @@ static void test_deque_with_capacity() {
     }
 }
 
-static void test_deque_operation() {
+static void test_deque_operation(void) {
     const int value_ini = 10;
     Deque* const deq = deque_new(sizeof(int), 3, &value_ini);
 
@@ -176,7 +176,7 @@ static void test_deque_operation() {
     deque_delete(deq);
 }
 
-int main() {
+int main(void) {
     test_vec_new();
     test_vec_with_capacity();
     test_vec_operation();
