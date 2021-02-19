@@ -17,6 +17,9 @@ Vec* vec_with_capacity(size_t elem_size, size_t cap);
 // vec を解放する。
 void vec_delete(Vec* vec);
 
+// vec を空にする。メモリは解放しない。
+void vec_clear(Vec* vec);
+
 // vec が空かどうかを返す。
 bool vec_is_empty(const Vec* vec);
 

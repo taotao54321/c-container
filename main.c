@@ -6,20 +6,24 @@
 static void test_vec_new(void) {
     {
         Vec* const vec = vec_new(sizeof(int), 0, NULL);
+
         assert(vec_is_empty(vec));
         assert(vec_len(vec) == 0);
         assert(vec_capacity(vec) > 0);
+
         vec_delete(vec);
     }
     {
         const size_t len = 42;
         const int value = 10;
         Vec* const vec = vec_new(sizeof(int), len, &value);
+
         assert(!vec_is_empty(vec));
         assert(vec_len(vec) == len);
         assert(vec_capacity(vec) >= len);
         for (size_t i = 0; i < len; ++i)
             assert(*(int*)vec_at(vec, i) == value);
+
         vec_delete(vec);
     }
 }
@@ -27,17 +31,21 @@ static void test_vec_new(void) {
 static void test_vec_with_capacity(void) {
     {
         Vec* const vec = vec_with_capacity(sizeof(int), 0);
+
         assert(vec_is_empty(vec));
         assert(vec_len(vec) == 0);
         assert(vec_capacity(vec) > 0);
+
         vec_delete(vec);
     }
     {
         const size_t cap = 42;
         Vec* const vec = vec_with_capacity(sizeof(int), cap);
+
         assert(vec_is_empty(vec));
         assert(vec_len(vec) == 0);
         assert(vec_capacity(vec) >= cap);
+
         vec_delete(vec);
     }
 }
@@ -80,26 +88,33 @@ static void test_vec_operation(void) {
     assert(*(int*)vec_at(vec, 2) == 25);
     assert(*(int*)vec_at(vec, 3) == 30);
 
+    vec_clear(vec);
+    assert(vec_is_empty(vec));
+
     vec_delete(vec);
 }
 
 static void test_deque_new(void) {
     {
         Deque* deq = deque_new(sizeof(int), 0, NULL);
+
         assert(deque_is_empty(deq));
         assert(deque_len(deq) == 0);
         assert(deque_capacity(deq) > 0);
+
         deque_delete(deq);
     }
     {
         const size_t len = 42;
         const int value = 10;
         Deque* const deq = deque_new(sizeof(int), len, &value);
+
         assert(!deque_is_empty(deq));
         assert(deque_len(deq) == len);
         assert(deque_capacity(deq) >= len);
         for (size_t i = 0; i < len; ++i)
             assert(*(int*)deque_at(deq, i) == value);
+
         deque_delete(deq);
     }
 }
@@ -107,17 +122,21 @@ static void test_deque_new(void) {
 static void test_deque_with_capacity(void) {
     {
         Deque* const deq = deque_with_capacity(sizeof(int), 0);
+
         assert(deque_is_empty(deq));
         assert(deque_len(deq) == 0);
         assert(deque_capacity(deq) > 0);
+
         deque_delete(deq);
     }
     {
         const size_t cap = 42;
         Deque* const deq = deque_with_capacity(sizeof(int), cap);
+
         assert(deque_is_empty(deq));
         assert(deque_len(deq) == 0);
         assert(deque_capacity(deq) >= cap);
+
         deque_delete(deq);
     }
 }
@@ -172,6 +191,9 @@ static void test_deque_operation(void) {
     assert(*(int*)deque_at(deq, 4) == 25);
     assert(*(int*)deque_at(deq, 5) == 30);
     assert(*(int*)deque_at(deq, 6) == 35);
+
+    deque_clear(deq);
+    assert(deque_is_empty(deq));
 
     deque_delete(deq);
 }

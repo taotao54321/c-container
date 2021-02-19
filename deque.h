@@ -17,6 +17,9 @@ Deque* deque_with_capacity(size_t elem_size, size_t cap);
 // deq を解放する。
 void deque_delete(Deque* deq);
 
+// deq を空にする。メモリは解放しない。
+void deque_clear(Deque* deq);
+
 // deq が空かどうかを返す。
 bool deque_is_empty(const Deque* deq);
 

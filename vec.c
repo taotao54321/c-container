@@ -69,6 +69,10 @@ void vec_delete(Vec* const vec) {
     free(vec);
 }
 
+void vec_clear(Vec* const vec) {
+    vec->len = 0;
+}
+
 bool vec_is_empty(const Vec* const vec) {
     return vec->len == 0;
 }

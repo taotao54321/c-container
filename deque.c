@@ -109,6 +109,10 @@ void deque_delete(Deque* const deq) {
     free(deq);
 }
 
+void deque_clear(Deque* const deq) {
+    deq->head = deq->tail = 0;
+}
+
 bool deque_is_empty(const Deque* const deq) {
     return deq->head == deq->tail;
 }
